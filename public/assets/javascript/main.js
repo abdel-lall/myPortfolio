@@ -1,0 +1,201 @@
+var j = 0;
+var i = 0;
+var time;
+var interv;
+var align;
+var noStyle = {
+  "margin-left": "0px",
+  "border-left": "none"
+};
+
+function repeatAnim() {
+  selectedPage();
+  var r = 0;
+  var e = 0;
+  clearTimeout(time);
+  clearInterval(interv);
+  clearTimeout(align);
+  $("#li2,#li3,#li4,#li7,#li6").css(noStyle);
+  for (i = 0; i < 8; i++) {
+    $("#c" + i).hide();
+    $("#" + i).empty();
+  }
+  writer(r, e);
+}
+
+selectedPage();
+
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+function selectedPage() {
+  $("#about").css({
+    "text-decoration": "line-through black",
+    "text-decoration-thickness": "1px",
+    'color': "black",
+    "margin-top": "6px",
+    "background-color": "white",
+    "mix-blend-mode": "multiply",
+    "font-weight": "400"
+  });
+  $("#portfolio2").css({
+    "text-decoration": "line-through black",
+    "text-decoration-thickness": "1px",
+    'color': "black",
+    "margin-top": "6px",
+    "background-color": "white",
+    "mix-blend-mode": "multiply",
+    "font-weight": "400"
+  });
+  $("#contact3").css({
+    "text-decoration": "line-through #590921",
+    "text-decoration-thickness": "1px",
+    'color': "black",
+    "margin-top": "6px",
+    "background-color": "white",
+    "mix-blend-mode": "multiply",
+    "font-weight": "400"
+  });
+}
+
+window.onload = function() {
+  console.log(this.j);
+  this.writer(0, 0);
+};
+
+function writer(a, b) {
+  var style = {
+    "margin-left": "30px",
+    "border-left": "solid 1px #000000"
+  };
+  var styleMobile = {
+    "margin-left": "15px",
+    "border-left": "solid 1px #000000"
+  };
+  var txt = [
+    "<div>",
+    "<h1>",
+    "I'm Abdelmounaim Lallouache",
+    "</h1>",
+    "<p>",
+    "I'm a full-stack web devoloper. I care deeply about creating useful and beautiful websites. I like to be involved at different stages of a project, from the front-end to the back-end.",
+    "</p>",
+    "</div>"
+  ];
+  var speed = 120;
+ 
+  if (b < txt[a].length) {
+    $("#c" + a).show();
+    $("#" + a).append(txt[a].charAt(b));
+    b++;
+    time = setTimeout(function() {
+      writer(a, b);
+    }, speed);
+  } else {
+    if (a < txt.length - 1) {
+      b = 0;
+      $("#c" + a).hide();
+      a++;
+      writer(a, b);
+    } else {
+      console.log("done");
+      interv = setInterval(() => {
+        $("#c7").toggle();
+      }, 500);
+
+      align = setTimeout(function() {
+        if($("#code").width() > 350){
+          $("#li2,#li3,#li4,#li7,#li6").css(style);
+        }else{
+          $("#li2,#li3,#li4,#li7,#li6").css(styleMobile);
+        }
+        
+      }, 500);
+    }
+  }
+}
+
+var FadeTransition = Barba.BaseTransition.extend({
+  start: function() {
+    Promise.all([this.newContainerLoading, this.fadeOut()])
+      .then(this.fadeIn.bind(this))
+      .then(function() {
+        
+        $("#btnSend").on("click",function(e){
+          e.preventDefault()
+          $("#name").css({'border-color': "white"})
+          $("#email").css({'border-color': "white"})
+          $("#message").css({'border-color': "white"})
+          data = {
+              name: $("#name").val(),
+              email: $("#email").val(),
+              message: $("#message").val(),
+          }
+         
+          if(data.name == "" || data.email == "" || data.message == ""){
+              if(data.name == ""){
+                  $("#name").css({'border-color': "red"})
+              }
+              if(data.email == ""){
+                  $("#email").css({'border-color': "red"})
+              }
+              if(data.message == ""){
+                  $("#message").css({'border-color': "red"})
+              }
+          }else if(!validateEmail(data.email)){
+              $("#email").css({'border-color': "red"})
+          }else{
+            $.ajax({
+              type: "POST",
+              url: "/contact",
+              data: data,
+            }).then(function(res){
+              if(res=="sent"){
+                $(".fa-check-circle").show()
+                setTimeout(() => {
+                  $(".fa-check-circle").hide()
+                }, 1500);
+                
+            }
+            });
+          }
+          
+         
+       })
+        repeatAnim();
+        
+      });
+  },
+
+  fadeOut: function() {
+    return $(this.oldContainer)
+      .animate({ opacity: 0 })
+      .promise();
+  },
+
+  fadeIn: function() {
+    var _this = this;
+    var $el = $(this.newContainer);
+
+    $(this.oldContainer).hide();
+
+    $el.css({
+      visibility: "visible",
+      opacity: 0
+    });
+
+    $el.animate({ opacity: 1 }, 400, function() {
+      _this.done();
+    });
+  }
+});
+
+Barba.Pjax.getTransition = function() {
+  return FadeTransition;
+};
+
+Barba.Pjax.start();
+
+
