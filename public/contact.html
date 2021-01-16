@@ -17,14 +17,11 @@
     <script src="https://kit.fontawesome.com/16c260e162.js"></script>
 
     <link rel="stylesheet" href="./assets/style/main.css" />
-    <link rel="stylesheet" href="./assets/style/contact.css" />
-    
-
     <title>Portfolio</title>
   </head>
   <body id="contactBody">
-    <div id="barba-wrapper">
-      <div class="barba-container">
+    <div data-barba="wrapper">
+      <div data-barba="container" data-barba-namespace="contact">
         <nav class="navbar navbar-expand-lg">
           <div id="navbarNav">
             <ul class="navbar-nav">
@@ -47,45 +44,81 @@
           </div>
         </nav>
         <div class="container" id="containerContact">
-          <div class="row " id="sectionOneContact">
+          <div class="row" id="sectionOneContact">
             <div class="container">
               <div class="row">
                 <h1 class="sectionName">Email</h1>
               </div>
               <div class="row">
-                  <p id="textEmail">If you wanna get in touch, 
-                      fill up the form below or send an email to 
-                      <span id="myEmail">abdelmounaim.lallouache@gmail.com</span> 
-                       </p>
+                <p id="textEmail">
+                  If you wanna get in touch, fill up the form below or send an
+                  email to
+                  <span id="myEmail">abdelmounaim.lallouache@gmail.com</span>
+                </p>
               </div>
-            <div class="row rowInput" autocomplete="off">
-              <i class="fas fa-user"></i
-              ><input type="text" placeholder="name" class="inputContact" id="name" autocomplete="off" />
+              <div class="row rowInput" autocomplete="off">
+                <i class="fas fa-user"></i
+                ><input
+                  type="text"
+                  placeholder="name"
+                  class="inputContact"
+                  id="name"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="row rowInput" autocomplete="off">
+                <i class="fas fa-envelope"></i
+                ><input
+                  type="text"
+                  placeholder="email"
+                  class="inputContact"
+                  id="email"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="row rowInput" autocomplete="off">
+                <i class="fas fa-edit"></i
+                ><input
+                  type="text"
+                  placeholder="message"
+                  class="inputContact"
+                  id="message"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="row rowInput">
+                <button class="btn" id="btnSend">
+                  <span id="sendBtnSpan">Send</span>
+                  <i class="far fa-check-circle"></i>
+                </button>
+              </div>
             </div>
-            <div class="row rowInput" autocomplete="off">
-                <i class="fas fa-envelope"></i><input type="text" placeholder="email" class="inputContact" id="email" autocomplete="off" />
-            </div>
-            <div class="row rowInput" autocomplete="off">
-              <i class="fas fa-edit"></i
-              ><input type="text" placeholder="message" class="inputContact" id="message" autocomplete="off" />
-            </div>
-            <div class="row rowInput">
-              <button class="btn " id="btnSend"><span id="sendBtnSpan">Send</span> <i class="far fa-check-circle" style="display: none;"></i></button></i>
-            </div>
-          </div>
           </div>
           <div class="row" id="sectionTwoContact">
             <div class="container">
               <div class="row">
-                  <h1 class="sectionName">Social Media</h1>
+                <h1 class="sectionName">Social Media</h1>
               </div>
               <div class="row">
-                  <p id="textEmail">Check out my profiles on<span id="myEmail"> GitHub</span> and <span id="myEmail">Linkedin.</span> </p>
+                <p id="textEmail">
+                  Check out my profiles on<span id="myEmail"> GitHub</span> and
+                  <span id="myEmail">Linkedin.</span>
+                </p>
               </div>
               <div class="row">
-                  <button class="btn socialBtn" onclick="window.open('https://github.com/abdel-lall')"><i class="fab fa-github"></i></button>
-                  <button class="btn socialBtn" id="linkedin" onclick="window.open('https://www.linkedin.com/in/abdelmounaim-lallouache-16834a183')"><i class="fab fa-linkedin-in"></i></button>
-                  
+                <button
+                  class="btn socialBtn"
+                  onclick="window.open('https://github.com/abdel-lall')"
+                >
+                  <i class="fab fa-github"></i>
+                </button>
+                <button
+                  class="btn socialBtn"
+                  id="linkedin"
+                  onclick="window.open('https://www.linkedin.com/in/abdelmounaim-lallouache-16834a183')"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -113,8 +146,9 @@
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/javascript/contact.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="./assets/javascript/main.js"></script>
   </body>
 </html>

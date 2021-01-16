@@ -19,8 +19,8 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="barba-wrapper">
-      <div class="barba-container">
+    <div data-barba="wrapper">
+      <div data-barba="container" data-barba-namespace="about">
         <nav class="navbar navbar-expand-lg">
           <div id="navbarNav">
             <ul class="navbar-nav">
@@ -44,12 +44,12 @@
         </nav>
 
         <div class="container-fluid" id="container">
-          <div class="row ">
+          <div class="row">
             <div class="col-md-6 order-md-1" id="animation">
               <div class="row" id="rowContent">
                 <h1 id="hello">HELLO</h1>
               </div>
-              <div class="row " id="rowAnim">
+              <div class="row" id="rowAnim">
                 <div class="col-1" id="editor">
                   <p class="editorN">1</p>
                   <p class="editorN">2</p>
@@ -103,7 +103,6 @@
             </div>
           </div>
         </div>
-        
       </div>
     </div>
 
@@ -127,7 +126,9 @@
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="./assets/javascript/main.js"></script>
   </body>
 </html>
