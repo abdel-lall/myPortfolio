@@ -6,8 +6,8 @@ var st2L = $("#st2").get(0).getTotalLength()
 $("#st0").css({"stroke-dasharray":st0L,"stroke-dashoffset" :st0L} )
 $("#st1").css({"stroke-dasharray":st1L,"stroke-dashoffset" :st1L} )
 $("#st2").css({"stroke-dasharray":st2L,"stroke-dashoffset" :st2L} )
-$("#descreption").css({opacity : 0 , "margin-top" : '20px'})
-
+$("#descreption").css({opacity : 0 })
+$("#socialMedia").css({opacity : 0 })
 
 $( "#st0" ).animate({"stroke-dashoffset": "0px"}, 500, function() {
     $("#st1").animate({"stroke-dashoffset": "0px"},1000, function() {
@@ -15,7 +15,8 @@ $( "#st0" ).animate({"stroke-dashoffset": "0px"}, 500, function() {
     })
   });
   setTimeout(()=>{
-    $("#descreption").animate({opacity : 1 , "margin-top" : '0px'},1500)
+    $("#socialMedia").animate({opacity : 1},1300)
+    $("#descreption").animate({opacity : 1},1300)
   },3700)
   
   
