@@ -28,39 +28,42 @@ body{
     box-sizing: border-box;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
     margin: 0px;
     display: grid;
     grid-template-rows: repeat(12,1fr);
-    padding: 0px 50px 0px 50px;
+    padding: 0vw 3.48vw 0vw 3.48vw;
 }
 .navbar {
     grid-row: 1/span 1;
     display: grid;
     align-items: end;
-    grid-template-columns: 45.6px auto repeat(3,110px);
+    grid-template-columns:  repeat(2,max-content) auto;
+    grid-template-rows: 100%;
     height: 100%;
-    width: calc(100% - 180px);
+    overflow: hidden;
+    width: 86.9vw;
     margin: 0 auto;
     box-sizing: border-box;
     padding-bottom: 0px;
-    /* background-color: aquamarine; */
-}
-.logo{
-    height: 35.6px;
 }
 .logoPic{
+    display: block;
     box-sizing: border-box;
-    padding-left: 10px;
-    height: 100%;
+    height: 4.71vh;
     width: auto;
     padding-bottom: 0px;
     text-align: center;
 }
+#hamburgerM{
+    display: none;
+}
 .name{
     box-sizing: border-box;
-    padding: 10px;
-    padding-left: 30px;
-    font-size: 12px;
+    height: 4.71vh;
+    padding: 1.32vh;
+    padding-left: 3.31vh;
+    font-size: 1.50vh;
     font-family:  Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: THIN;
@@ -68,36 +71,41 @@ body{
     text-align: left;
     
 }
+.navbarBTNS{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    height: 4.71vh;
+}
 .aboutMBtn{
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 1.50vh;
     letter-spacing: 1px;
     font-family:  Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 2px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 0.7vw;
+    padding-top: 0.7vw;
     text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1.4vw;
+    margin-right: 1.4vw;
     border-bottom: thin solid transparent;
     transition: border-bottom 1s;
     text-decoration: none;
 }
 .worksMBtn{
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 1.50vh;
     letter-spacing: 1px;
     font-family:  Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 2px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 0.7vw;
+    padding-top: 0.7vw;
     text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1.4vw;
+    margin-right: 1.4vw;
     border-bottom: thin solid transparent;
     transition: border-bottom 1s;
     text-decoration: none;
@@ -108,17 +116,17 @@ body{
 }
 .contactMBtn{
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 1.50vh;
     letter-spacing: 1px;
     font-family:  Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 2px;
     border: thin solid black;
-    padding: 10px;
+    padding: 0.7vw;
     text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.7vw;
+    margin-right: 0.7vw;
     color: black;
     background-color: transparent;
     transition: background-color 1s , color 1s;
@@ -133,7 +141,8 @@ body{
     grid-row: 2/span 11;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(6,1fr);
+    /* grid-template-columns: repeat(auto-fill, minmax(384px, 50%)); */
+    grid-auto-rows: 16.6%;
     grid-gap: 5px;
  
 }
@@ -239,3 +248,74 @@ body{
     margin-right: 25.6px;
     
 }
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 576px) {
+    .navbarBTNS{
+        display: grid;
+        grid-template-columns: auto;
+        justify-items: end;
+        align-items: center;
+    }
+    .navbarBTN{
+        display: none;
+    }
+    #hamburgerM{
+        display: block;
+        height: 2.53vh;
+        width: auto;
+    }
+    /* #line1,#line2,#line3{
+       transition: 1s ease-in-out; 
+    } */
+    /* #hamburgerM:hover > svg > #line2{
+        animation: turn 1s ease;
+        transform-origin: center;
+        transform-box: fill-box;
+        
+    } */
+
+    #line3{
+        /* transform: translateX(78px) rotate(-30deg);
+        transform-origin: bottom left */
+    }
+
+  }
+@keyframes turn{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(30deg);
+    }
+}  
+@keyframes turnS{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(-26.5deg);
+    }
+}  
+@keyframes turnRev{
+    from{
+        transform: rotateZ(30deg);
+    }
+    to{
+        transform: rotateZ(0deg);
+    }
+}  
+@keyframes turnSRev{
+    from{
+        transform: rotateZ(-26.5deg);
+    }
+    to{
+        transform: rotateZ(0deg);
+    }
+}  
