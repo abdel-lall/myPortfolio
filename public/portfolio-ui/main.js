@@ -62,12 +62,12 @@ $("#hamburgerM").on("click", function (e) {
     });
 
     $("#line1").css({
-      "animation": "turnS 1s ease forwards",
+      "animation": "turnSr 1s ease forwards",
       "transform-origin": "right top",
       "transform-box": "fill-box",
     });
     $("#line3").css({
-      "animation": "turnS 1s ease forwards",
+      "animation": "turnSl 1s ease forwards",
       "transform-origin": "left top",
       "transform-box": "fill-box",
     });
@@ -90,12 +90,12 @@ $("#hamburgerM").on("click", function (e) {
     });
 
     $("#line1").css({
-      "animation": "turnSRev 1s ease forwards",
+      "animation": "turnSrRev 1s ease forwards",
       "transform-origin": "right top",
       "transform-box": "fill-box",
     });
     $("#line3").css({
-      "animation": "turnSRev 1s ease forwards",
+      "animation": "turnSlRev 1s ease forwards",
       "transform-origin": "left top",
       "transform-box": "fill-box",
     });

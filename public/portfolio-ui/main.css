@@ -38,7 +38,7 @@ body{
     grid-row: 1/span 1;
     display: grid;
     align-items: end;
-    grid-template-columns:  repeat(2,max-content) auto;
+    grid-template-columns:  max-content auto max-content ;
     grid-template-rows: 100%;
     height: 100%;
     overflow: hidden;
@@ -262,7 +262,11 @@ body{
 
 
 @media only screen and (max-width: 576px) {
-  
+    .navbar {
+       
+        align-items: end;
+        grid-template-columns:  repeat(2,max-content) auto;
+    }
     .navbarBTNS{
         display: grid;
         grid-template-columns: auto;
@@ -287,12 +291,20 @@ body{
         transform: rotateZ(30deg);
     }
 }  
-@keyframes turnS{
+@keyframes turnSl{
     from{
-        transform: rotateZ(0deg);
+        transform:translate(0px)  rotateZ(0deg);
     }
     to{
-        transform: rotateZ(-26.5deg);
+        transform: translateX(74px)  rotateZ(-30deg);
+    }
+}  
+@keyframes turnSr{
+    from{
+        transform:translate(0px)  rotateZ(0deg);
+    }
+    to{
+        transform: translateX(-74px)  rotateZ(-30deg);
     }
 }  
 @keyframes turnRev{
@@ -303,11 +315,21 @@ body{
         transform: rotateZ(0deg);
     }
 }  
-@keyframes turnSRev{
+@keyframes turnSlRev{
     from{
-        transform: rotateZ(-26.5deg);
+        transform: translateX(74px)  rotateZ(-30deg);
     }
     to{
-        transform: rotateZ(0deg);
+        transform:translate(0px)  rotateZ(0deg);
+
+    }
+}  
+@keyframes turnSrRev{
+    from{
+        transform: translateX(-74px)  rotateZ(-30deg);
+    }
+    to{
+        transform:translate(0px)  rotateZ(0deg);
+
     }
 }  
