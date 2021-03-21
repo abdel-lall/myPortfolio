@@ -56,39 +56,56 @@ $("#hamburgerM").on("click", function (e) {
   e.preventDefault();
   if (!hamState) {
     $("#line2").css({
-      animation: "turn 1s ease forwards",
+      "animation": "turn 1s ease forwards",
       "transform-origin": "center",
       "transform-box": "fill-box",
     });
 
     $("#line1").css({
-      animation: "turnS 1s ease forwards",
+      "animation": "turnS 1s ease forwards",
       "transform-origin": "right top",
       "transform-box": "fill-box",
     });
     $("#line3").css({
-      animation: "turnS 1s ease forwards",
+      "animation": "turnS 1s ease forwards",
       "transform-origin": "left top",
       "transform-box": "fill-box",
     });
+    $("#name").hide()
+    $(".navbarBTN").fadeIn(1200)
+    $(".navbar").css({"grid-template-columns":  "max-content auto"})
+    $(".navbarBTNS").css({
+      "grid-template-columns": "repeat(3 ,auto) max-content",
+      "justify-items": "center",
+    })
+  
+
+
     hamState = true;
   } else {
     $("#line2").css({
-      animation: "turnRev 1s ease forwards",
+      "animation": "turnRev 1s ease forwards",
       "transform-origin": "center",
       "transform-box": "fill-box",
     });
 
     $("#line1").css({
-      animation: "turnSRev 1s ease forwards",
+      "animation": "turnSRev 1s ease forwards",
       "transform-origin": "right top",
       "transform-box": "fill-box",
     });
     $("#line3").css({
-      animation: "turnSRev 1s ease forwards",
+      "animation": "turnSRev 1s ease forwards",
       "transform-origin": "left top",
       "transform-box": "fill-box",
     });
+    $("#name").fadeIn(1200)
+    $(".navbarBTN").hide()
+    $(".navbar").css({"grid-template-columns":  "repeat(2,max-content) auto"})
+    $(".navbarBTNS").css({
+      "grid-template-columns": "auto",
+      "justify-items": "end",
+    })
     hamState = false;
   }
 });

@@ -69,7 +69,7 @@ body{
     font-weight: THIN;
     letter-spacing: 2px;
     text-align: left;
-    
+
 }
 .navbarBTNS{
     display: grid;
@@ -78,6 +78,7 @@ body{
 }
 .aboutMBtn{
     box-sizing: border-box;
+    height: 4.71vh;
     font-size: 1.50vh;
     letter-spacing: 1px;
     font-family:  Helvetica, sans-serif;
@@ -86,6 +87,7 @@ body{
     letter-spacing: 2px;
     padding-bottom: 0.7vw;
     padding-top: 0.7vw;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
     text-align: center;
     margin-left: 1.4vw;
     margin-right: 1.4vw;
@@ -95,6 +97,7 @@ body{
 }
 .worksMBtn{
     box-sizing: border-box;
+    height: 4.71vh;
     font-size: 1.50vh;
     letter-spacing: 1px;
     font-family:  Helvetica, sans-serif;
@@ -103,6 +106,7 @@ body{
     letter-spacing: 2px;
     padding-bottom: 0.7vw;
     padding-top: 0.7vw;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
     text-align: center;
     margin-left: 1.4vw;
     margin-right: 1.4vw;
@@ -116,6 +120,7 @@ body{
 }
 .contactMBtn{
     box-sizing: border-box;
+    height: 4.71vh;
     font-size: 1.50vh;
     letter-spacing: 1px;
     font-family:  Helvetica, sans-serif;
@@ -123,7 +128,7 @@ body{
     font-weight: 100;
     letter-spacing: 2px;
     border: thin solid black;
-    padding: 0.7vw;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
     text-align: center;
     margin-left: 0.7vw;
     margin-right: 0.7vw;
@@ -257,6 +262,7 @@ body{
 
 
 @media only screen and (max-width: 576px) {
+  
     .navbarBTNS{
         display: grid;
         grid-template-columns: auto;
@@ -270,20 +276,6 @@ body{
         display: block;
         height: 2.53vh;
         width: auto;
-    }
-    /* #line1,#line2,#line3{
-       transition: 1s ease-in-out; 
-    } */
-    /* #hamburgerM:hover > svg > #line2{
-        animation: turn 1s ease;
-        transform-origin: center;
-        transform-box: fill-box;
-        
-    } */
-
-    #line3{
-        /* transform: translateX(78px) rotate(-30deg);
-        transform-origin: bottom left */
     }
 
   }
