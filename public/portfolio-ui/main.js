@@ -1,3 +1,12 @@
+$( document ).ready(function() {
+  console.log( "ready!" );
+  if($(window).width()<= 992){
+    $("#myPhoto").attr("src", "./portraitmobile.png");
+   }else{
+    $("#myPhoto").attr("src", "./portrait.png");
+   }
+
+
 // var st0L = $("#st0").get(0).getTotalLength();
 // var st1L = $("#st1").get(0).getTotalLength();
 // var st2L = $("#st2").get(0).getTotalLength();
@@ -50,8 +59,29 @@
 
 //   },
 // });
-var hamState = false;
 
+
+
+var hamState = false;
+$( window ).resize(function() {
+ if($(".container").width()> 576){
+  $("#name").removeAttr( 'style' )
+  $(".navbarBTN").removeAttr( 'style' )
+  $(".navbar").removeAttr( 'style' )
+  $(".navbarBTNS").removeAttr( 'style' )
+  $("#line1").removeAttr( 'style' )
+  $("#line2").removeAttr( 'style' )
+  $("#line3").removeAttr( 'style' )
+  hamState = false;
+ } 
+ if($(".container").width()<= 992){
+  $("#myPhoto").attr("src", "./portraitmobile.png");
+ }else{
+  $("#myPhoto").attr("src", "./portrait.png");
+ }
+});
+
+console.log($(".container").width())
 $("#hamburgerM").on("click", function (e) {
   e.preventDefault();
   if (!hamState) {
@@ -108,4 +138,6 @@ $("#hamburgerM").on("click", function (e) {
     })
     hamState = false;
   }
+});
+
 });
