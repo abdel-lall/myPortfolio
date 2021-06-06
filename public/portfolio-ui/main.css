@@ -310,17 +310,17 @@ body{
     width: 90%;
     margin: 0 auto;
     grid-template-columns: 100px 1fr 1fr 100px;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(9, 1fr);
 }
 #leftArrow{
-    grid-row: 2/span 3;
+    grid-row: 1/span 8;
     grid-column: 1/span 1;
     display: block;
     width: 25px;
     height: auto;
     justify-self: center;
     align-self: center;
-    transition: all 1s;
+    transition: all 0.5s;
 
 }
 
@@ -328,21 +328,21 @@ body{
     transform: translateX(-10px) scale(1.2);
 }
 #rightArrow{
-    grid-row: 2/span 3;
+    grid-row: 1/span 8;
     grid-column: 4/span 1;
     display: block;
     width: 25px;
     height: auto;
     justify-self: center;
     align-self: center;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 #rightArrow:hover{
     transform: translateX(10px) scale(1.2);
 
 }
 #cursor{
-    grid-row: 5/span 1;
+    grid-row: 9/span 1;
     grid-column: 2/span 2;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -354,10 +354,10 @@ body{
     border-bottom: 1px solid black;
 }
 #workImgDiv{
-    grid-row: 1/span 4;
+    grid-row: 2/span 7;
     grid-column: 2/span 1;
     display: grid;
-    align-items: end;
+    align-items: start;
     justify-items: center;
     /* border: 1px solid black; */
     /* background-image: url(./books-b-w.jpg); */
@@ -374,10 +374,55 @@ body{
     /* padding: 20px; */
     /* border: 1px solid black; */
 }
+#workDes{
+    grid-row: 2/span 7;
+    grid-column: 3/span 1;
+    display: grid;
+    padding: 10px;
+    padding-left: 50px;
 
+}
+#workTitle{
+    font-family: hal;
+    font-size: 24px;
+    font-weight: 100;
 
-
-
+}
+#workOvv{
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-family: newf;
+    text-transform: uppercase;
+    line-height: 18px;
+}
+#readM,#visitWeb{
+    box-sizing: border-box;
+    height: 4.71vh;
+    font-size: 1.50vh;
+    letter-spacing: 1px;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: thin solid black;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
+    text-align: center;
+    /* margin-left: 0.7vw;
+    margin-right: 0.7vw; */
+    color: black;
+    background-color: transparent;
+    transition: background-color 1s , color 1s;
+    text-decoration: none;
+}
+#visitWeb{
+    margin-left: 20px;
+}
+#readM:hover,#visitWeb:hover{
+    background-color: black;
+    color: white;
+    
+}
 
 /* ================================================Media queries =================================================== */
 

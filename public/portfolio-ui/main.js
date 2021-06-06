@@ -1,5 +1,11 @@
+
+
 $( document ).ready(function() {
-  console.log( "ready!" );
+  
+// ++++++++++++++++++++++++++++++++++++++landing page script +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// change profile picture according to the screen width 
+
   if($(window).width()<= 992){
     $("#myPhoto").attr("src", "./portraitmobile.png");
    }else{
@@ -7,11 +13,12 @@ $( document ).ready(function() {
    }
 
 
+
+// hello svg animation 
 // var st0L = $("#st0").get(0).getTotalLength();
 // var st1L = $("#st1").get(0).getTotalLength();
 // var st2L = $("#st2").get(0).getTotalLength();
 
-// console.log($(".container").height())
 
 // $("#st0").css({ "stroke-dasharray": st0L, "stroke-dashoffset": st0L });
 // $("#st1").css({ "stroke-dasharray": st1L, "stroke-dashoffset": st1L });
@@ -29,39 +36,40 @@ $( document ).ready(function() {
 //   $("#descreption").animate({ opacity: 1 }, 1300);
 // }, 3700);
 
-// $("#twitterLogo").on({
-//   mouseenter: function () {
-//     $("#twitterLogo").attr("src", "./twiterlogo_filled.png");
-//     $("#twitterLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
-//   },
-//   mouseleave: function () {
-//     $("#twitterLogo").attr("src", "./twiterlogo_black.png");
 
-//   },
-// });
-// $("#inLogo").on({
-//   mouseenter: function () {
-//     $("#inLogo").attr("src", "./linkedinlogo_filled.png");
-//     $("#inLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
-//   },
-//   mouseleave: function () {
-//     $("#inLogo").attr("src", "./linkedinlogo_black.png");
-//   },
-// });
+// social media icons animation on hover 
+$("#twitterLogo").on({
+  mouseenter: function () {
+    $("#twitterLogo").attr("src", "./twiterlogo_filled.png");
+    $("#twitterLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
+  },
+  mouseleave: function () {
+    $("#twitterLogo").attr("src", "./twiterlogo_black.png");
 
-// $("#gitLogo").on({
-//   mouseenter: function () {
-//     $("#gitLogo").attr("src", "./githublogo_filled.png");
-//     $("#gitLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
-//   },
-//   mouseleave: function () {
-//     $("#gitLogo").attr("src", "./githublogo_black.png");
+  },
+});
+$("#inLogo").on({
+  mouseenter: function () {
+    $("#inLogo").attr("src", "./linkedinlogo_filled.png");
+    $("#inLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
+  },
+  mouseleave: function () {
+    $("#inLogo").attr("src", "./linkedinlogo_black.png");
+  },
+});
+$("#gitLogo").on({
+  mouseenter: function () {
+    $("#gitLogo").attr("src", "./githublogo_filled.png");
+    $("#gitLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
+  },
+  mouseleave: function () {
+    $("#gitLogo").attr("src", "./githublogo_black.png");
 
-//   },
-// });
+  },
+});
 
 
-
+// hamburger menu 
 var hamState = false;
 $( window ).resize(function() {
  if($(".container").width()> 576){
@@ -81,7 +89,6 @@ $( window ).resize(function() {
  }
 });
 
-console.log($(".container").width())
 $("#hamburgerM").on("click", function (e) {
   e.preventDefault();
   if (!hamState) {
@@ -139,5 +146,88 @@ $("#hamburgerM").on("click", function (e) {
     hamState = false;
   }
 });
+
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++Work page script ++++++++++++++++++++++++++++++++++++++++++
+  
+var workData = [
+  {
+    id : "1" ,
+    img : "./sq-website1.jpg",
+    title : "Google Book Search",
+    desc : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur rem quae minus est libero mollitia!"
+  },
+  {
+    id : "2" ,
+    img : "./sq-website1.jpg",
+    title : "Google Book Search",
+    desc : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur rem quae minus est libero mollitia!"
+  },
+  {
+    id : "3" ,
+    img : "./sq-website1.jpg",
+    title : "Google Book Search",
+    desc : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur rem quae minus est libero mollitia!"
+  },
+  {
+    id : "4" ,
+    img : "./sq-website1.jpg",
+    title : "Google Book Search",
+    desc : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur rem quae minus est libero mollitia!"
+  },
+  {
+    id : "5" ,
+    img : "./sq-website1.jpg",
+    title : "Google Book Search",
+    desc : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur rem quae minus est libero mollitia!"
+  },
+  {
+    id : "6" ,
+    img : "./sq-website1.jpg",
+    title : "Google Book Search",
+    desc : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur rem quae minus est libero mollitia!"
+  },
+]
+
+  $("#leftArrow").on("click",function(){
+
+    var occ = $("#workDes").data("id") 
+    console.log(occ)
+    if(occ > 0){
+      $("#rightArrow").show()
+      $("#workImgDiv").fadeOut("ease")
+      $("#workDes").fadeOut("ease")
+      var dec = occ - 1;
+      $("#workDes").data('id', dec)
+      $("#workTitle").html(workData[occ].title)
+      $("#workOvv").html(workData[occ].desc)
+      $("#workImg").html(workData[occ].img)
+      $("#workImgDiv").fadeIn("ease")
+      $("#workDes").fadeIn("ease")
+    }else{
+      $("#leftArrow").hide()
+    }
+  })
+$("#rightArrow").on("click",function(){
+  var occ = $("#workDes").data("id") 
+  console.log(occ)
+  if(occ < workData.length-1){
+    $("#leftArrow").show()
+    $("#workImgDiv").fadeOut("ease")
+    $("#workDes").fadeOut("ease")
+    var inc = occ + 1;
+    $("#workDes").data('id', inc)
+    $("#workTitle").html(workData[occ].title)
+    $("#workOvv").html(workData[occ].desc)
+    $("#workImg").html(workData[occ].img)
+    $("#workImgDiv").fadeIn("ease")
+    $("#workDes").fadeIn("ease")
+  }else{
+    $("#rightArrow").hide()
+  }
+    
+  })
+
 
 });
