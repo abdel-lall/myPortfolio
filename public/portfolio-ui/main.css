@@ -682,6 +682,93 @@ body{
 }
 
 }
+/* ===================================================contact page media queries =================================== */
+
+@media only screen and (max-width: 992px) {
+    
+    #ContactCard{
+        grid-row: 2/span 5;
+        grid-column: 1/span 1;
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: repeat(8, 1fr);
+        width: 90%;
+    }
+    #getInTouch{
+        grid-row: 1/span 1;
+        grid-column: 1/span 2;  
+    }
+    #fullName{
+        grid-row: 2/span 1;
+        grid-column: 1/span 2;
+    }
+    #email{
+        grid-row: 3/span 1;
+        grid-column: 1/span 2;
+    }
+    #message{
+        grid-row: 4/span 1;
+        grid-column: 1/span 2;
+    
+    }
+    #sendBtnDiv{
+        grid-row: 5/span 1;
+        grid-column: 1/span 2;
+    }
+    #b4c5399e-8e88-454a-af31-c29cb5db6be6{
+        align-self: center;
+        justify-self: center;
+    
+    }
+    #send{
+        align-self: center;
+        justify-self: center;
+    }
+    #myEmail{
+        grid-row: 6/span 1;
+        grid-column: 1/span 2;
+        align-self: center;
+        padding-left: 0px;
+       
+    }
+    #phoneNumber{
+        grid-row: 7/span 1;
+        grid-column: 1/span 1;
+        align-self: center;
+        padding-left: 0px;
+     
+        
+    }
+    #socialIcons{
+        grid-row: 7/span 1;
+        grid-column: 2/span 1;
+        align-items: center;
+        justify-self: end;
+        padding-left: 0px;
+     
+    
+    }
+}
+@media only screen and (max-width: 576px) {
+
+    .lineLeftContact{
+        display: none;
+    }
+    .lineRightContact{
+        display: none;
+    }
+    .pageNameContact{
+        display: none;
+    }
+    
+    }
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 576px) {
     /* ======================================================= General media queries ========================= */
