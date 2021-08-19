@@ -192,42 +192,48 @@ var workData = [
 
   $("#leftArrow").on("click",function(){
 
-    var occ = $("#workDes").data("id") 
-    console.log(occ)
-    if(occ > 0){
+    let projectId = parseInt($("#workDesDiv").data("id")) 
+    
+    if(projectId > 0){
       $("#rightArrow").show()
-      $("#workImgDiv").fadeOut("ease")
-      $("#workDes").fadeOut("ease")
-      var dec = occ - 1;
-      $("#workDes").data('id', dec)
-      $("#workTitle").html(workData[occ].title)
-      $("#workOvv").html(workData[occ].desc)
-      $("#workImg").html(workData[occ].img)
-      $("#workImgDiv").fadeIn("ease")
-      $("#workDes").fadeIn("ease")
+      workCardAnimmation('hide')
+      projectId = projectId - 1;
+      $("#workDesDiv").data('id', projectId)
+      $("#workTitle").html(workData[projectId].title)
+      $("#workOvv").html(workData[projectId].desc)
+      $("#workImg").html(workData[projectId].img)
+      workCardAnimmation('show')
     }else{
       $("#leftArrow").hide()
     }
   })
 $("#rightArrow").on("click",function(){
-  var occ = $("#workDes").data("id") 
-  console.log(occ)
-  if(occ < workData.length-1){
+  let projectId = parseInt($("#workDesDiv").data("id") )
+  if(projectId < workData.length-1){
     $("#leftArrow").show()
-    $("#workImgDiv").fadeOut("ease")
-    $("#workDes").fadeOut("ease")
-    var inc = occ + 1;
-    $("#workDes").data('id', inc)
-    $("#workTitle").html(workData[occ].title)
-    $("#workOvv").html(workData[occ].desc)
-    $("#workImg").html(workData[occ].img)
-    $("#workImgDiv").fadeIn("ease")
-    $("#workDes").fadeIn("ease")
+    workCardAnimmation('hide')
+    projectId = projectId + 1;
+    $("#workDesDiv").data('id', projectId)
+    console.log(parseInt($("#workDesDiv").data("id") ))
+    $("#workTitle").html(workData[projectId].title)
+    $("#workOvv").html(workData[projectId].desc)
+    $("#workImg").html(workData[projectId].img)
+    workCardAnimmation('show')
   }else{
     $("#rightArrow").hide()
   }
     
   })
-
+function workCardAnimmation(par){
+  if (par== 'show'){
+    $("#workImg").fadeIn("ease")
+    $("#workTitle").fadeIn("ease")
+    $("#workOvv").fadeIn("ease")
+  }else if (par == 'hide'){
+    $("#workImg").fadeOut("ease")
+    $("#workTitle").fadeOut("ease")
+    $("#workOvv").fadeOut("ease")
+  }
+}
 
 });
