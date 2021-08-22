@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="main.css" />
     <title>A.Lallouache</title>
   </head>
-  <body>
-    <div class="container">
+  <body data-barba="wrapper">
+    <div class="container" data-barba="container" data-barba-namespace="works">
       <div class="navbar">
-        <img src="./logo3.png" alt="" class="logoPic" />
+        <img src="./images/logo3.png" alt="" class="logoPic" />
         <div class="name" id="name">A.Lallouache</div>
         <div class="navbarBTNS">
-          <div class="navbarBTN aboutMBtn">About</div>
-          <div class="navbarBTN worksMBtn">works</div>
-          <div class="navbarBTN contactMBtn">contact</div>
+          <div class="navbarBTN aboutMBtn" id="aboutbtn">About</div>
+          <div class="navbarBTN worksMBtn" id="worksbtn">works</div>
+          <div class="navbarBTN contactMBtn" id="contactbtn">contact</div>
           <div id="hamburgerM">
             <svg
               id="Layer2"
@@ -47,21 +47,20 @@
           </div>
         </div>
       </div>
-      <div class="mainWorks">
+      <div class="mainWorks" >
         <div class="lineLeftWorks"></div>
         <div class="lineRightWorks"></div>
         <span class="pageNameWorks">Works</span>
         <div id="card">
           <svg
             id="leftArrow"
-            style="display: none;"
+            style="display: none"
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 645.26 298.94"
           >
             <defs>
               <style>
-                
                 .cls-1,
                 .cls-2 {
                   fill: none;
@@ -129,7 +128,7 @@
             />
           </svg>
           <div id="workDesDiv" data-id="1">
-            <img id="workImg" src="./sq-website1.jpg" alt="" />
+            <img id="workImg" src="./images/sq-website1.jpg" alt="" />
             <div id="workTitle">Google Book Search</div>
             <div id="workOvv">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -148,6 +147,9 @@
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

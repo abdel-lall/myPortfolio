@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/abdel-lall/myPortfolio#readme",
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^45.0.0",

@@ -1,24 +1,11 @@
 @font-face {
     font-family: newf;
-    src: url(DISCO___.ttf);
+    src: url(fonts/DISCO___.ttf);
 }
 @font-face {
     font-family: hal;
-    src: url(Halimun.ttf);
+    src: url(fonts/Halimun.ttf);
 }
-@font-face {
-    font-family: son;
-    src: url(saonara.woff);
-}
-@font-face {
-    font-family: disco;
-    src: url(AmplitudeWide.ttf);
-}
-@font-face {
-    font-family: hal-thin;
-    src: url(helvetica-thin.ttf);
-}
-
 /* ==================================================== General styling =========================================== */
 
 body{
