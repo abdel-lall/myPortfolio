@@ -3,153 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Londrina+Outline&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/16c260e162.js"></script>
-
-    <link rel="stylesheet" href="./assets/style/main.css" />
-    <link rel="icon" type="image/png" href="/favicon.png"/>
-    <title>Contact</title>
+    <link rel="stylesheet" href="./style/main.css" />
+    <title>A.Lallouache</title>
   </head>
-  <body id="contactBody">
-    <div data-barba="wrapper">
-      <div data-barba="container" data-barba-namespace="contact">
-        <nav class="navbar navbar-expand-lg">
-          <div id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="main.html"
-                  ><span id="about3">About</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="portfolio.html"
-                  ><span id="portfolio3">Portfolio</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html"
-                  ><span id="contact3">Contact</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div class="container" id="containerContact">
-          <div class="row" id="sectionOneContact">
-            <div class="container">
-              <div class="row">
-                <h1 class="sectionName">Email</h1>
-              </div>
-              <div class="row">
-                <p id="textEmail">
-                  If you wanna get in touch, fill up the form below or send an
-                  email to
-                  <span id="myEmail">abdelmounaim.lallouache@gmail.com</span>
-                </p>
-              </div>
-              <div class="row rowInput" autocomplete="off">
-                <i class="fas fa-user"></i
-                ><input
-                  type="text"
-                  placeholder="name"
-                  class="inputContact"
-                  id="name"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="row rowInput" autocomplete="off">
-                <i class="fas fa-envelope"></i
-                ><input
-                  type="text"
-                  placeholder="email"
-                  class="inputContact"
-                  id="email"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="row rowInput" autocomplete="off">
-                <i class="fas fa-edit"></i
-                ><input
-                  type="text"
-                  placeholder="message"
-                  class="inputContact"
-                  id="message"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="row rowInput">
-                <button class="btn" id="btnSend">
-                  <span id="sendBtnSpan">Send</span>
-                  <i class="far fa-check-circle"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="row" id="sectionTwoContact">
-            <div class="container">
-              <div class="row">
-                <h1 class="sectionName">Social Media</h1>
-              </div>
-              <div class="row">
-                <p id="textEmail">
-                  Check out my profiles on<span id="myEmail"> GitHub</span> and
-                  <span id="myEmail">Linkedin.</span>
-                </p>
-              </div>
-              <div class="row">
-                <button
-                  class="btn socialBtn"
-                  onclick="window.open('https://github.com/abdel-lall')"
-                >
-                  <i class="fab fa-github"></i>
-                </button>
-                <button
-                  class="btn socialBtn"
-                  id="linkedin"
-                  onclick="window.open('https://www.linkedin.com/in/abdelmounaim-lallouache-16834a183')"
-                >
-                  <i class="fab fa-linkedin-in"></i>
-                </button>
-              </div>
-            </div>
+  <body data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="contact">
+    <div class="container" >
+      <div class="navbar">
+        <img src="./images/logo3.png" alt="" class="logoPic" />
+        <div class="name" id="name">A.Lallouache</div>
+        <div class="navbarBTNS">
+          <a class="aTag navbarBTN aboutMBtn" href="main.html">About</a>
+          <a class="aTag navbarBTN aboutMBtn" href="works.html">works</a>
+          <a class="aTag navbarBTN aboutMBtn" href="contact.html">contact</a>
+          <div id="hamburgerM">
+            <svg
+              id="Layer2"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1000 530"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: none;
+                    stroke: #313131;
+                    stroke-miterlimit: 10;
+                    stroke-width: 20px;
+                  }
+                </style>
+              </defs>
+              <title>Untitled-1</title>
+              <line
+                id="line1"
+                class="cls-1"
+                x1="500"
+                y1="15"
+                x2="1000"
+                y2="15"
+              />
+              <line id="line2" class="cls-1" y1="265" x2="1000" y2="265" />
+              <line id="line3" class="cls-1" y1="515" x2="500" y2="515" />
+            </svg>
           </div>
         </div>
       </div>
+      <div class="mainContact" >
+        <div class="lineLeftContact"></div>
+        <div class="lineRightContact"></div>
+        <span class="pageNameContact">Contact</span>
+        <div id="ContactCard">
+            <div id="getInTouch">Get in touch</div>
+            <input type="text" id="fullName" placeholder="FULL NAME" autocomplete="off">
+            <input type="text" id="email" placeholder="EMAIL" autocomplete="off">
+            <input type="text" id="message" placeholder="MESSAGE" autocomplete="off">
+            <div id="sendBtnDiv">
+              <button id="send">Send</button>
+              <svg id="b4c5399e-8e88-454a-af31-c29cb5db6be6" data-name="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 361 186"><defs><style>.ebd968cb-a835-4c19-80fe-bbcdf70046f1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:11px;}</style></defs><title>Untitled-1</title><polyline class="ebd968cb-a835-4c19-80fe-bbcdf70046f1" points="5.5 70.5 78.5 180.5 355.5 5.5"/></svg>
+            </div>
+            
+            
+            <div id="myEmail">e-mail:<br/>abdelmounaim.lallouache@<br/>gmail.com</div>
+            <div id="phoneNumber">phone number:<br/>(815) 650 5057</div>
+            <div id="socialIcons">
+                <img src="./images/twiterlogo_black.png" alt="" class="socialMIcon" id="twitterLogo">
+                <img src="./images/linkedinlogo_black.png" alt="" class="socialMIcon" id="inLogo">
+                <img src="./images/githublogo_black.png" alt="" class="socialMIcon" id="gitLogo">
+            </div>
+        </div>
+      </div>
     </div>
-
+    </div>
     <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
-    <script src="./assets/javascript/main.js"></script>
+    <script src="./javascript/main.js"></script>
   </body>
 </html>

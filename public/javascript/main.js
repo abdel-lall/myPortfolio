@@ -2,7 +2,6 @@
 barba.init({
   transitions: [{
     name: 'opacity-transition',
-    sync: false,
     leave(data) {
       return gsap.to(data.current.container, {
         opacity: 0
@@ -32,7 +31,7 @@ barba.init({
         
       },
       afterEnter() {
-        navigation();
+        // navigation();
         hamburgerMenu()
         socialMediaHoverEffect();
         SocialMediaLinks();
@@ -69,7 +68,7 @@ barba.init({
       namespace: "works",
       beforeEnter() {},
       afterEnter() {
-        navigation();
+        // navigation();
         hamburgerMenu()
         var workData = [
           {
@@ -149,7 +148,7 @@ barba.init({
       beforeEnter() {},
       afterEnter() {
         hamburgerMenu()
-        navigation();
+        // navigation();
         socialMediaHoverEffect();
         SocialMediaLinks();
         // ==================================email form =========================================================

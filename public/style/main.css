@@ -1,10 +1,10 @@
 @font-face {
     font-family: newf;
-    src: url(fonts/DISCO___.ttf);
+    src: url(../fonts/DISCO___.ttf);
 }
 @font-face {
     font-family: hal;
-    src: url(fonts/Halimun.ttf);
+    src: url(../fonts/Halimun.ttf);
 }
 /* ==================================================== General styling =========================================== */
 
@@ -14,6 +14,12 @@ body{
     background-color: 
     #e0e0e0;
     color: #313131;
+    overflow: hidden;
+}
+.aTag{
+    color: inherit;
+    text-decoration: none;
+
 }
 .container{
     box-sizing: border-box;
