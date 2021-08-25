@@ -9,11 +9,29 @@ barba.init({
     },
     enter(data) {
       return gsap.from(data.next.container, {
-        opacity: 0
+        opacity: 0 , duration: ".5"
       });
     }
   },
-  
+  {
+    name: 'landingPage-transition',
+    from: {
+      namespace: ['landingPage']
+    },
+    to: {
+      namespace: ['main']
+    }, 
+    leave(data) {
+      return gsap.to(data.current.container, {
+        dutation: '1', y: "-100vh"
+      });
+    },
+    enter(data) {
+      return gsap.from(data.next.container, {
+        opacity: 0 , duration: ".5"
+      });
+    }
+  }
 ],
   views: [
     {
@@ -22,7 +40,22 @@ barba.init({
 
       },
       afterEnter(){
+        var l1 = $("#a513d6d5cde6a").get(0).getTotalLength();
+       
 
+        var shape1 = $("#a513d6d5cde6a")
+       
+        shape1.css({ "stroke-dasharray": l1, "stroke-dashoffset": l1 });
+       
+
+        shape1.animate({ "stroke-dashoffset": "0px" }, 2000)
+        
+        setTimeout(() => {
+          $("#landingpageName").fadeTo( 1000 , 1, function(){
+            barba.go("/main")
+          } );
+        }, 2000);
+      
       }
     },
     {
@@ -31,7 +64,6 @@ barba.init({
         
       },
       afterEnter() {
-        // navigation();
         hamburgerMenu()
         socialMediaHoverEffect();
         SocialMediaLinks();
@@ -52,6 +84,7 @@ barba.init({
         $("#st2").css({ "stroke-dasharray": st2L, "stroke-dashoffset": st2L });
         $("#descreption").css({ opacity: 0 });
         $("#socialMedia").css({ opacity: 0 });
+        $("#myPhoto").css({ opacity: 0 });
 
         $("#st0").animate({ "stroke-dashoffset": "0px" }, 500, function () {
           $("#st1").animate({ "stroke-dashoffset": "0px" }, 1000, function () {
@@ -61,6 +94,7 @@ barba.init({
         setTimeout(() => {
           $("#socialMedia").animate({ opacity: 1 }, 1300);
           $("#descreption").animate({ opacity: 1 }, 1300);
+          $("#myPhoto").animate({ opacity: 1 }, 1300);
         }, 3700);
       },
     },
@@ -68,7 +102,6 @@ barba.init({
       namespace: "works",
       beforeEnter() {},
       afterEnter() {
-        // navigation();
         hamburgerMenu()
         var workData = [
           {
@@ -148,7 +181,6 @@ barba.init({
       beforeEnter() {},
       afterEnter() {
         hamburgerMenu()
-        // navigation();
         socialMediaHoverEffect();
         SocialMediaLinks();
         // ==================================email form =========================================================
@@ -199,21 +231,7 @@ barba.init({
   ],
 });
 
-// =========================================================nav bar script =========================================
-function navigation() {
-  $("#aboutbtn").on("click", function (e) {
-    e.preventDefault();
-    window.location.href = "main.html";
-  });
-  $("#worksbtn").on("click", function (e) {
-    e.preventDefault();
-    window.location.href = "works.html";
-  });
-  $("#contactbtn").on("click", function (e) {
-    e.preventDefault();
-    window.location.href = "contact.html";
-  });
-}
+
 
 // ==========================social media icons links===============================================================
 function SocialMediaLinks() {
@@ -233,7 +251,7 @@ function SocialMediaLinks() {
   });
 }
 
-// ==============================emaol validation function =========================================================
+// ==============================email validation function =========================================================
 function validateEmail(email) {
   var re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

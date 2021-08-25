@@ -150,7 +150,6 @@ body{
     
     height: 100vh;
     width: 100vw;
-    background-color: #313131;
     margin: 0px;
     padding: 0px;
 }
@@ -162,6 +161,7 @@ body{
     justify-items: center;
     margin: 0px;
     padding: 0px;
+    background-color: #313131;
 }
 #landingpageLogoDiv{
     width: 30vh;
@@ -183,10 +183,13 @@ body{
     letter-spacing: 3px;
     text-align: center;
     align-self: center;
+    /* text-shadow: #e0e0e0 0px 1px 5px; */
+    opacity: 0;
 }
 #landingpageSVG{
-    grid-column: 2/span1;
-    grid-row: 1/span1;
+    grid-column: 2/span 1;
+    grid-row: 1/span 1;
+    
 }
 /* ==============================================main page ========================================== */
 .main{
