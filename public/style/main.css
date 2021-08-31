@@ -6,6 +6,244 @@
     font-family: hal;
     src: url(../fonts/Halimun.ttf);
 }
+/* =====================================================settings page=========================================== */
+#settingsContainer{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:6vh 6vh 88vh;
+    background-color: #e0e0e0;
+}
+#commands{
+    grid-column: 1/ span 1;
+    grid-row: 1/span 1;
+    display: grid;
+    justify-items: end;
+    align-items: center;
+    padding: 10px;
+}
+#logout{
+    box-sizing: border-box;
+    height: 4.71vh;
+    font-size: 1.50vh;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: thin solid #313131;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
+    text-align: center;
+    color: #313131;
+    background-color: transparent;
+    text-decoration: none;
+    width: fit-content;
+    
+}
+#logout:hover{
+    background-color: #313131;
+    color: #e0e0e0;
+}
+#settingsSectionTitles{
+    grid-column: 1/ span 1;
+    grid-row: 2/span 1;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
+    width: fit-content;
+    margin: 0 auto;
+}
+#trafficSttitle{
+    grid-column: 1/ span 1;
+    grid-row: 1/span 1;
+    box-sizing: border-box;
+    height: 4.71vh;
+    font-size: 1.50vh;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: thin solid #313131;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
+    text-align: center;
+    color: #313131;
+    background-color: transparent;
+    text-decoration: none;
+    width: fit-content;
+    align-self: end;
+    position: relative;
+    top: 1px;
+    border-bottom: thin solid #e0e0e0;
+   
+}
+#messagesSttitle{
+    grid-column: 2/ span 1;
+    grid-row: 1/span 1;
+    box-sizing: border-box;
+    height: 4.71vh;
+    font-size: 1.50vh;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: thin solid #313131;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
+    text-align: center;
+    color: #313131;
+    background-color: transparent;
+    text-decoration: none;
+    width: fit-content;
+    align-self: end;
+    position: relative;
+    top: 1px;
+    border-bottom: none;
+}
+#trafficSttitle:hover,#messagesSttitle:hover{
+    background-color: #313131;
+    color: #e0e0e0;
+}
+#trafficSection{
+    border: thin solid #313131;
+    grid-column: 1/ span 1;
+    grid-row: 3/span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(7vh, max-content));
+    overflow-y: scroll;
+    visibility: visible;
+   
+}
+#messageSection{
+    border: thin solid #313131;
+    grid-column: 1/ span 1;
+    grid-row: 3/span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(7vh, max-content));
+    overflow-y: scroll;
+    visibility: hidden;
+}
+.trafficCard,.messageCard{
+    display: grid;
+    grid-template-columns: repeat(3,1fr) auto;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.visitID,.visitDate,.visitCount,.messageSenderName,.messageSenderEmail,.messageContent{
+    text-align: center;
+    padding-top: 5px;
+}
+.deleteVisit,.deleteMessage{
+    box-sizing: border-box;
+    height: 4.71vh;
+    font-size: 1.50vh;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: thin solid #313131;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
+    text-align: center;
+    color: #313131;
+    background-color: transparent;
+    text-decoration: none;
+    width: fit-content;
+    align-self: center;
+}
+.deleteVisit:hover,.deleteMessage:hover{
+    background-color: #313131;
+    color: #e0e0e0;
+}
+/* /=============================================settings login================================================ */
+#logInBody{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: #313131;
+}
+#loginDiv{
+    
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2,1fr);
+   
+   
+}
+#pswCheck{
+    grid-column: 1/span 2;
+    grid-row: 1/span 1;
+    font-size: 1.8vh;
+    line-height: 3vh;
+    color: #e0e0e0;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 5px;
+    text-align: center;
+    visibility: hidden;
+}
+#password{
+    box-sizing: border-box;
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
+    background-color: #e0e0e0;
+    border: 1px solid #e0e0e0;
+}
+#password::placeholder{
+    font-size: 1.7vh;
+    letter-spacing: 0.31vh;
+    font-weight: bold;
+    font-family: newf;
+    text-transform: uppercase;
+    line-height: 2.7vh;
+}
+#logIn{
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 1.50vh;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: thin solid #e0e0e0;
+    padding: calc((4.71vh - 1.50vh - 2px)/2 );
+    text-align: center;
+    color: #e0e0e0;
+    background-color: transparent;
+    transition: background-color 1s , color 1s;
+    text-decoration: none;
+    width: 100%;
+    align-self: end;
+}
+#logIn:hover{
+    border-left-color: #313131;
+    color: #313131;
+    background-color: #e0e0e0;
+}
+/* ================================not found=================================================================== */
+#NotfoundDiv{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    background-color: #313131;
+    justify-items: center;
+    align-items: center;
+}
+#NotFound{
+    font-size: 1.8vh;
+    line-height: 3vh;
+    color: #e0e0e0;
+    font-family:  Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 5px;
+    text-align: center;
+   
+}
 /* ==================================================== General styling =========================================== */
 
 body{
@@ -52,7 +290,7 @@ body{
     padding-bottom: 0px;
     text-align: center;
 }
-#hamburgerM{
+#hamburgerMMain,#hamburgerMWorks,#hamburgerMContact{
     display: none;
 }
 .name{
@@ -207,15 +445,18 @@ body{
 
 }
 #myPhoto{
+    height: 70vh;
+    width: auto;
     padding-top: 9.4vh;
     display: block;
     margin: 0 auto;
 }
 #hello{
     box-sizing: border-box;
-    display: grid;
+   
     grid-row: 2/span 2;
     grid-column: 1/span 1;
+    display: grid;
     font-family: hal;
     align-items: end;
     padding-left: 3.5vw;
@@ -824,7 +1065,7 @@ body{
     .navbarBTN{
         display: none;
     }
-    #hamburgerM{
+    #hamburgerMMain,#hamburgerMWorks,#hamburgerMContact{
         display: block;
         width: 4.7vh;
         height: auto;

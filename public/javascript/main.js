@@ -40,16 +40,12 @@ barba.init({
 
       },
       afterEnter(){
+        // =========================================landing page logo animation =================================
         var l1 = $("#a513d6d5cde6a").get(0).getTotalLength();
-       
-
         var shape1 = $("#a513d6d5cde6a")
        
         shape1.css({ "stroke-dasharray": l1, "stroke-dashoffset": l1 });
-       
-
         shape1.animate({ "stroke-dashoffset": "0px" }, 2000)
-        
         setTimeout(() => {
           $("#landingpageName").fadeTo( 1000 , 1, function(){
             barba.go("/main")
@@ -61,12 +57,12 @@ barba.init({
     {
       namespace: "main",
       beforeEnter() {
-        
+      
       },
       afterEnter() {
-        hamburgerMenu()
-        socialMediaHoverEffect();
-        SocialMediaLinks();
+        hamburgerMenu('Main')
+        socialMediaHoverEffect('Main');
+        SocialMediaLinks('Main');
         // change profile picture according to the screen width
         if ($(window).width() <= 992) {
           $("#myPhoto").attr("src", "./images/portraitmobile.png");
@@ -102,7 +98,7 @@ barba.init({
       namespace: "works",
       beforeEnter() {},
       afterEnter() {
-        hamburgerMenu()
+        hamburgerMenu('Works')
         var workData = [
           {
             id: "1",
@@ -180,9 +176,9 @@ barba.init({
       namespace: "contact",
       beforeEnter() {},
       afterEnter() {
-        hamburgerMenu()
-        socialMediaHoverEffect();
-        SocialMediaLinks();
+        hamburgerMenu('Contact')
+        socialMediaHoverEffect('Contact');
+        SocialMediaLinks('Contact');
         // ==================================email form =========================================================
         $("#send").on("click", function (e) {
           e.preventDefault();
@@ -234,18 +230,18 @@ barba.init({
 
 
 // ==========================social media icons links===============================================================
-function SocialMediaLinks() {
-  $("#twitterLogo").on("click", function (e) {
+function SocialMediaLinks(pageName) {
+  $("#twitterLogo"+pageName).on("click", function (e) {
     e.preventDefault();
     window.open("https://twitter.com/A_Lallouache");
   });
-  $("#inLogo").on("click", function (e) {
+  $("#inLogo"+pageName).on("click", function (e) {
     e.preventDefault();
     window.open(
       "https://www.linkedin.com/in/abdelmounaim-lallouache-16834a183"
     );
   });
-  $("#gitLogo").on("click", function (e) {
+  $("#gitLogo"+pageName).on("click", function (e) {
     e.preventDefault();
     window.open("https://github.com/abdel-lall");
   });
@@ -273,76 +269,75 @@ function workCardAnimmation(par) {
 
 // ========================================social media icons hover animation ======================================
 
-function socialMediaHoverEffect() {
-  $("#twitterLogo").on({
-    mouseenter: function () {
-      $("#twitterLogo").attr("src", "./images/twiterlogo_filled.png");
-      $("#twitterLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
-    },
-    mouseleave: function () {
-      $("#twitterLogo").attr("src", "./images/twiterlogo_black.png");
-    },
-  });
-  $("#inLogo").on({
-    mouseenter: function () {
-      $("#inLogo").attr("src", "./images/linkedinlogo_filled.png");
-      $("#inLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
-    },
-    mouseleave: function () {
-      $("#inLogo").attr("src", "./images/linkedinlogo_black.png");
-    },
-  });
-  $("#gitLogo").on({
-    mouseenter: function () {
-      $("#gitLogo").attr("src", "./images/githublogo_filled.png");
-      $("#gitLogo").css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
-    },
-    mouseleave: function () {
-      $("#gitLogo").attr("src", "./images/githublogo_black.png");
-    },
-  });
+function socialMediaHoverEffect(pageName) {
+    $("#twitterLogo"+pageName).on({
+      mouseenter: function () {
+        $("#twitterLogo"+pageName).attr("src", "./images/twiterlogo_filled.png");
+        $("#twitterLogo"+pageName).css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
+      },
+      mouseleave: function () {
+        $("#twitterLogo"+pageName).attr("src", "./images/twiterlogo_black.png");
+      },
+    });
+    $("#inLogo"+pageName).on({
+      mouseenter: function () {
+        $("#inLogo"+pageName).attr("src", "./images/linkedinlogo_filled.png");
+        $("#inLogo"+pageName).css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
+      },
+      mouseleave: function () {
+        $("#inLogo"+pageName).attr("src", "./images/linkedinlogo_black.png");
+      },
+    });
+    $("#gitLogo"+pageName).on({
+      mouseenter: function () {
+        $("#gitLogo"+pageName).attr("src", "./images/githublogo_filled.png");
+        $("#gitLogo"+pageName).css({ opacity: 0 }).animate({ opacity: 1 }, 1000);
+      },
+      mouseleave: function () {
+        $("#gitLogo"+pageName).attr("src", "./images/githublogo_black.png");
+      },
+    });
+  
+  
+ 
 }
 // =============================================hamburger menu  ===================================================
-function hamburgerMenu() {
+function hamburgerMenu(pageName) {
   // hamburger menu
   var hamState = false;
   $(window).resize(function () {
     if ($(".container").width() > 576) {
-      $("#name").removeAttr("style");
+      $("#name"+pageName).removeAttr("style");
       $(".navbarBTN").removeAttr("style");
       $(".navbar").removeAttr("style");
       $(".navbarBTNS").removeAttr("style");
-      $("#line1").removeAttr("style");
-      $("#line2").removeAttr("style");
-      $("#line3").removeAttr("style");
+      $("#line1"+pageName).removeAttr("style");
+      $("#line2"+pageName).removeAttr("style");
+      $("#line3"+pageName).removeAttr("style");
       hamState = false;
     }
-    if ($(".container").width() <= 992) {
-      $("#myPhoto").attr("src", "./images/portraitmobile.png");
-    } else {
-      $("#myPhoto").attr("src", "./images/portrait.png");
-    }
+  
   });
-  $("#hamburgerM").on("click", function (e) {
+  $("#hamburgerM"+pageName).on("click", function (e) {
     e.preventDefault();
     if (!hamState) {
-      $("#line2").css({
+      $("#line2"+pageName).css({
         animation: "turn 1s ease forwards",
         "transform-origin": "center",
         "transform-box": "fill-box",
       });
 
-      $("#line1").css({
+      $("#line1"+pageName).css({
         animation: "turnSr 1s ease forwards",
         "transform-origin": "right top",
         "transform-box": "fill-box",
       });
-      $("#line3").css({
+      $("#line3"+pageName).css({
         animation: "turnSl 1s ease forwards",
         "transform-origin": "left top",
         "transform-box": "fill-box",
       });
-      $("#name").hide();
+      $("#name"+pageName).hide();
       $(".navbarBTN").fadeIn(1200);
       $(".navbar").css({ "grid-template-columns": "max-content auto" });
       $(".navbarBTNS").css({
@@ -352,23 +347,23 @@ function hamburgerMenu() {
 
       hamState = true;
     } else {
-      $("#line2").css({
+      $("#line2"+pageName).css({
         animation: "turnRev 1s ease forwards",
         "transform-origin": "center",
         "transform-box": "fill-box",
       });
 
-      $("#line1").css({
+      $("#line1"+pageName).css({
         animation: "turnSrRev 1s ease forwards",
         "transform-origin": "right top",
         "transform-box": "fill-box",
       });
-      $("#line3").css({
+      $("#line3"+pageName).css({
         animation: "turnSlRev 1s ease forwards",
         "transform-origin": "left top",
         "transform-box": "fill-box",
       });
-      $("#name").fadeIn(1200);
+      $("#name"+pageName).fadeIn(1200);
       $(".navbarBTN").hide();
       $(".navbar").css({
         "grid-template-columns": "repeat(2,max-content) auto",
