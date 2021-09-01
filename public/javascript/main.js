@@ -207,20 +207,20 @@ barba.init({
           } else if (!validateEmail(data.email)) {
             $("#email").css({ "border-bottom-width": "2px" });
           }
-          // else {
-          //   $.ajax({
-          //     type: "POST",
-          //     url: "/contact",
-          //     data: data,
-          //   }).then(function (res) {
-          //     if (res == "sent") {
-          //       $("#b4c5399e-8e88-454a-af31-c29cb5db6be6").css("visibility", "visible");
-          //       setTimeout(() => {
-          //         $("#b4c5399e-8e88-454a-af31-c29cb5db6be6").css("visibility", "hidden");
-          //       }, 1500);
-          //     }
-          //   });
-          // }
+          else {
+            $.ajax({
+              type: "POST",
+              url: "/contact",
+              data: data,
+            }).then(function (res) {
+              if (res) {
+                $("#b4c5399e-8e88-454a-af31-c29cb5db6be6").css("visibility", "visible");
+                setTimeout(() => {
+                  $("#b4c5399e-8e88-454a-af31-c29cb5db6be6").css("visibility", "hidden");
+                }, 1500);
+              }
+            });
+          }
         });
       },
     },

@@ -1,19 +1,21 @@
 require("dotenv").config();
-var express = require("express");
-var app = express();
-var path = require("path");
-var session = require("express-session");
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose')
+const express = require("express");
+const app = express();
+const path = require("path");
+const session = require("express-session");
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-var PORT = process.env.PORT || 3000;
-bodyParser = require("body-parser");
-
+const PORT = process.env.PORT || 3000;
+const bodyParser = require("body-parser");
+const Message =require('./models/message.js')
+const Traffic = require('./models/traffic.js');
+const moment = require('moment-timezone');
 
 
 app.use(express.static("public"));
-app.use(session({ secret: "cats" }));
+app.use(session({ secret: "abdel" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(passport.initialize());
@@ -72,7 +74,21 @@ app.get("/", function(req, res) {
   var ip = req.headers['x-forwarded-for'] ||
      req.socket.remoteAddress ||
      null;
-  res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
+  const visit = new Traffic({
+    ip,
+    time: moment().tz("America/Chicago").format('MMMM Do YYYY, h:mm:ss a')
+  })
+  visit.save()
+  .then(function(resault){
+    res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
+  })
+ .catch(function(err){
+   console.log(err)
+   res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
+
+ })
+
+
 });
 app.get("/main", function(req, res) {
   res.sendFile(path.join(__dirname, "./public", "main.html"));
@@ -84,7 +100,6 @@ app.get("/contact", function(req, res) {
   res.sendFile(path.join(__dirname, "./public", "contact.html"));
 });
 app.get("/settings",checkAuth, function(req, res) {
-  
   res.sendFile(path.join(__dirname, "./public", "settings.html"));
 });
 app.get("/settingLogin", function(req, res) {
@@ -97,7 +112,18 @@ app.get('/logout', function(req, res){
 
 app.post("/contact", function(req, res) {
   var { name, email, message } = req.body;
-  console.log(name +' '+email+''+message)
+  const newMessage = new Message({
+    name ,
+    email,
+    message,
+  })
+  newMessage.save()
+  .then(function(resault) {
+    res.send(resault)
+  })
+  .catch(function(err){
+    console.log(err)
+  })
 });
 app.post("/settingLogin",function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
@@ -109,6 +135,37 @@ app.post("/settingLogin",function(req, res, next) {
     });
   })(req, res, next);
 });
+app.post("/settings",function(req,res){
+  Traffic.find().then(function(trafRes){
+    Message.find().then(function(messRes){
+      res.send({trafRes,messRes})
+    })
+    .catch(function(errm){
+      console.log(`messagedb err${errm}`)
+    })
+  }).catch(function(errt){
+    console.log(`trafficdb err${errt}`)
+  })
+})
+
+
+app.delete('/settings',function(req,res){
+  var id = req.body.id
+  var dataType = req.body.dataType
+  if(dataType == "traffic"){
+    Traffic.findByIdAndDelete(id, function (err) {
+      if(err) console.log(err);
+      res.send('succes');
+    });
+  }else if(dataType == 'message'){
+    Message.findByIdAndDelete(id, function (err) {
+      if(err) console.log(err);
+      res.send('succes');
+    });
+  }
+  
+ 
+})
 
 
 app.get('*', function(req, res){
