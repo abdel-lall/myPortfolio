@@ -100,7 +100,7 @@ app.get("/works", function(req, res) {
 app.get("/contact", function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "contact.html"));
 });
-app.get("/settings", checkAuth, function(req, res) {
+app.get("/settings", function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "settings.html"));
 });
 app.get("/settingLogin", function(req, res) {

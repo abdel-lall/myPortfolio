@@ -36,7 +36,7 @@ window.onload = function() {
             <button class="deleteVisit" data-id=${element._id}>delete</button>
           </div>`
     
-            $("#trafficSection").append(eleTemplate)
+            $("#Visitsdetails").append(eleTemplate)
             $(".deleteVisit").on('click',function(e){
                 e.preventDefault()
                 e.stopPropagation();
@@ -51,7 +51,7 @@ window.onload = function() {
                     },
                   }).then(function (res) {
                     
-                    $("#trafficSection").find(`[data-card='${id}']`).remove()
+                    $("#Visitsdetails").find(`[data-card='${id}']`).remove()
                   });
             })
 
