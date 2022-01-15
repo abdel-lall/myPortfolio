@@ -26,37 +26,30 @@ window.onload = function() {
         url: "/settings",
       }).then(function (res) {
         var trafficData = res.trafRes
+        var date = new Date()
         draw_function_Grapgh(trafficData);
         trafficData.forEach(element => {
-            var eleTemplate = `<div class="trafficCard" data-card=${element._id}>
-            <div class="visitID">${element.ip}</div>
-            <div class="visitDate">Central:${element.time}/ISO:${element.date}</div>
-            <div class="visitCount">//</div>
-            <button class="deleteVisit" data-id=${element._id}>delete</button>
-          </div>`
-    
-            $("#Visitsdetails").append(eleTemplate)
-            $(".deleteVisit").on('click',function(e){
-                e.preventDefault()
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                var id = $(this).attr('data-id')
-                $.ajax({
-                    type: "DELETE",
-                    url: "/settings",
-                    data: {
-                        id: id,
-                        dataType: 'traffic'
-                    },
-                  }).then(function (res) {
-                    
-                    $("#Visitsdetails").find(`[data-card='${id}']`).remove()
-                  });
-            })
-
-
-
+            if(moment(element.date).format('L') == moment(date).format('L')){
+              var eleTemplate = `<div class="trafficCard" data-card=${element._id}>
+              <div class="visitID">IP: ${element.ip}</div>
+              <div class="visitDate">Date & Time: ${element.time}</div>
+              </div>`
+              $("#Visitsdetails").append(eleTemplate)
+            }
         });
+        $('.graph_point').on('click',function(e){
+          e.preventDefault()
+          $("#Visitsdetails").empty()
+          trafficData.forEach(element => {
+            if(moment(element.date).format('L') == e.target.id){
+              var eleTemplate = `<div class="trafficCard" data-card=${element._id}>
+              <div class="visitID">IP: ${element.ip}</div>
+              <div class="visitDate">Date & Time: ${element.time}</div>
+              </div>`
+              $("#Visitsdetails").append(eleTemplate)
+            }
+        });
+        })
         var messageData = res.messRes
         messageData.forEach(element => {
             var meleTemplate = `<div class="messageCard" data-card=${element._id}>
@@ -110,7 +103,7 @@ function draw_function_Grapgh(data){
     add_Line(coordinate[i][0],coordinate[i+1][0],coordinate[i][1],coordinate[i+1][1])
   }
   for(i=0;i<coordinate.length;i++){ 
-    add_Point(coordinate[i][0],coordinate[i][1])
+    add_Point(coordinate[i][0],coordinate[i][1],visit_count[i],i)
   }
 
 }
@@ -126,7 +119,8 @@ function generate_coordinate(arr,max){
   }
   return coordinate;
 }
-function add_Point(x,y){
+function add_Point(x,y,label,id){
+    var date  = new Date();
     var x_ = x + 124.48;
     var y_ = 500.5 - y;
     var svgns = "http://www.w3.org/2000/svg";
@@ -136,7 +130,8 @@ function add_Point(x,y){
     point.setAttribute('r', 2.5)
     point.setAttribute('cx', x_)
     point.setAttribute('cy', y_)
-    
+    point.setAttribute('id',moment(date).subtract(14-id, 'days').format("L"))
+    point.innerHTML = "<title class='point_title'> "+label+" </title>";
     
     svg.appendChild(point)
 }

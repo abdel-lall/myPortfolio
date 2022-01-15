@@ -88,7 +88,10 @@ app.get("/", function(req, res) {
             res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
 
         })
-
+        Traffic.find({ date: { $gte: moment().tz("America/Chicago").subtract(14, 'days')},
+        function (err, docs) {
+            docs.remove()}
+    })
 
 });
 app.get("/main", function(req, res) {
@@ -100,7 +103,7 @@ app.get("/works", function(req, res) {
 app.get("/contact", function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "contact.html"));
 });
-app.get("/settings", function(req, res) {
+app.get("/settings",checkAuth, function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "settings.html"));
 });
 app.get("/settingLogin", function(req, res) {
@@ -153,16 +156,11 @@ app.post("/settings", function(req, res) {
 app.delete('/settings', function(req, res) {
     var id = req.body.id
     var dataType = req.body.dataType
-    if (dataType == "traffic") {
-        Traffic.findByIdAndDelete(id, function(err) {
-            if (err) console.log(err);
-            res.send('succes');
-        });
-    } else if (dataType == 'message') {
+    if (dataType == 'message') {
         Message.findByIdAndDelete(id, function(err) {
             if (err) console.log(err);
             res.send('succes');
-        });
+    });
     }
 
 
