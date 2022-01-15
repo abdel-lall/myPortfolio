@@ -72,9 +72,13 @@ function validatepassword(pass, cb) {
 }
 
 app.get("/", function(req, res) {
-    var ip = req.headers['x-forwarded-for'] ||
-        req.socket.remoteAddress ||
-        null;
+    var ip = req.headers['x-forwarded-for']
+    if(ip == '::ffff:127.0.0.1'){
+        ip = req.socket.remoteAddress 
+        
+    }else{
+        ip = null;
+    }
     const visit = new Traffic({
         ip,
         time: moment().tz("America/Chicago").format('MMMM Do YYYY, h:mm:ss a')
