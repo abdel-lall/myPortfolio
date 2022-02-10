@@ -218,7 +218,7 @@ text-align: center;
 
 .trafficCard{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     box-sizing: border-box;
     margin: 5px;
     padding: 5px;
@@ -236,6 +236,7 @@ text-align: center;
 .visitID,
 .visitDate,
 .visitCount,
+.visitLocation,
 .messageSenderName,
 .messageSenderEmail,
 .messageContent {
@@ -1268,6 +1269,31 @@ body {
     .pageName {
         display: none;
     }
+}
+/* =======================================================settings media queries===================================== */
+@media only screen and (max-width: 1024px) {
+    #trafficSection {
+        grid-template-columns: 1fr ;
+        grid-template-rows: 50% auto;
+    }
+    #visitesGraph{
+        height: 100%; 
+    }
+    #grapg_svg{
+        max-height: 90%;
+        width: auto;
+    }
+
+}
+@media only screen and (max-width: 576px) {
+    .trafficCard {
+        margin: 2px;
+        padding: 2px;
+    }
+    .visitID, .visitDate, .visitCount, .visitLocation {
+        font-size: 10px;
+    }
+    
 }
 
 

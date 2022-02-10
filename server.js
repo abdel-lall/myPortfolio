@@ -13,6 +13,7 @@ const Message = require('./models/message.js')
 const Traffic = require('./models/traffic.js');
 const moment = require('moment-timezone');
 var favicon = require('serve-favicon')
+var geoip = require('geoip-lite');
 
 app.use(express.static("public"));
 app.use(session({ secret: "abdel" }));
@@ -72,32 +73,35 @@ function validatepassword(pass, cb) {
 }
 
 app.get("/", function(req, res) {
-    var ip = req.headers['x-forwarded-for']
-    if(ip == '::ffff:127.0.0.1'){
-        ip = req.socket.remoteAddress 
-        
-    }else{
-        ip = null;
-    }
+    var follower = follow('/var/log/nginx/access.log');
+    follower.on('line', function(filename, line) {
+    var list = line.split('-');
+    const ip = list[0];
+    var geo = geoip.lookup(ip.trim());
+
     const visit = new Traffic({
-        ip,
-        time: moment().tz("America/Chicago").format('MMMM Do YYYY, h:mm:ss a')
-    })
-    visit.save()
-        .then(function(resault) {
-            res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
+            ip,
+            time: moment().tz("America/Chicago").format('MMMM Do YYYY, h:mm:ss a'),
+            location: geo ? `${geo.country}, ${geo.region}, ${geo.city}` : `Unknown`
         })
-        .catch(function(err) {
-            console.log(err)
-            res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
-
-        })
-        Traffic.find({ date: { $gte: moment().tz("America/Chicago").subtract(14, 'days')},
-        function (err, docs) {
-            docs.remove()}
+        visit.save()
+            .then(function(resault) {
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+    follower.close()
     })
-
-});
+    var befifteend = moment().tz("America/Chicago").subtract(14, 'days').calendar()
+            Traffic.deleteMany({ date: { $lte: befifteend}
+        }).then(function(){
+        console.log("Data deleted"); // Success
+    }).catch(function(error){
+        console.log(error); // Failure
+    });
+    res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
+    
+    });
 app.get("/main", function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "main.html"));
 });

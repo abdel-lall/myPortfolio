@@ -8,6 +8,9 @@ const trafficSh = new Schema({
     time: {
         type: String,
     },
+    location: {
+        type: String,
+    },
     date: { type: Date, default: Date.now }
 })
 
