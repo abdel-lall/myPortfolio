@@ -116,13 +116,13 @@
           </svg>
                     <div id="workDesDiv" data-id="0">
                         <img id="workImg" src="./images/website1.png" alt="" />
-                        <div id="workTitle">Chicstyler</div>
+                        <div id="workTitle">Job Hunter</div>
                         <div id="workOvv">
-                            Chicstyler is a demo e-commerce website that offers a wide range of clothing products. ChicStyler is designed and built using a microservices architecture.
+                            Job hunter is an app that helps the users to organize their job seacrh by keeping track of their job applications, It also allows them to search for job positions posted on indeed.com.
                         </div>
                         <div id="workBtns">
-                            <a href="https://github.com/abdel-lall/chicstyler#readme" id="readM" target="_blank">Read more</a>
-                            <a href="https://www.chicstyler.store" id="visitWeb" target="_blank">visit website</a>
+                            <a href="https://github.com/abdel-lall/job-hunter/blob/master/README.md" id="readM" target="_blank">Read more</a>
+                            <a href="http://jobhunterwebsite id="visitWeb" target="_blank">visit website</a>
                         </div>
                     </div>
                 </div>

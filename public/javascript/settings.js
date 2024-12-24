@@ -46,6 +46,7 @@ window.onload = function() {
               var eleTemplate = `<div class="trafficCard" data-card=${element._id}>
               <div class="visitID">IP: ${element.ip}</div>
               <div class="visitDate">Date & Time: ${element.time}</div>
+		<div class="visitLocation">Location: ${element.location}</div>
               </div>`
               $("#Visitsdetails").append(eleTemplate)
             }

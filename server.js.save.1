@@ -6,14 +6,13 @@ const session = require("express-session");
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const PORT = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const Message = require('./models/message.js')
 const Traffic = require('./models/traffic.js');
 const moment = require('moment-timezone');
 var favicon = require('serve-favicon')
-var geoip = require('geoip-lite');
 var follow = require('text-file-follower');
 
 app.use(express.static("public"));
@@ -24,6 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
+app.set('trust proxy', true)
 passport.use(new LocalStrategy(
     function(username, password, done) {
         var user = {
@@ -74,35 +74,19 @@ function validatepassword(pass, cb) {
 }
 
 app.get("/", function(req, res) {
-    var follower = follow('/var/log/nginx/access.log');
-    follower.on('line', function(filename, line) {
-    var list = line.split('-');
-    const ip = list[0];
-    var geo = geoip.lookup(ip.trim());
+var ip;
+var follower = follow('/var/log/nginx/access.log');
+follower.on('line', function(filename, line) {
+const list = line.split('-');
+ip = list[0];
+follower.close()
+}); 
 
-    const visit = new Traffic({
-            ip,
-            time: moment().tz("America/Chicago").format('MMMM Do YYYY, h:mm:ss a'),
-            location: geo ? `${geo.country}, ${geo.region}, ${geo.city}` : `Unknown`
-        })
-        visit.save()
-            .then(function(resault) {
-            })
-            .catch(function(err) {
-                console.log(err)
-            })
-    follower.close()
-    })
-    var befifteend = moment().tz("America/Chicago").subtract(14, 'days').calendar()
-            Traffic.deleteMany({ date: { $lte: befifteend}
-        }).then(function(){
-        console.log("data befor 15 days deleted"); // Success
-    }).catch(function(error){
-        console.log(error); // Failure
-    });
-    res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
-    
-    });
+res.sendFile(path.join(__dirname, "./public", "landingPage.html"));
+Traffic.find({ date: { $gte: moment().tz("America/Chicago").subtract(14, 'days')},
+    function (err, docs) {docs.remove()}})
+
+});
 app.get("/main", function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "main.html"));
 });
@@ -112,7 +96,7 @@ app.get("/works", function(req, res) {
 app.get("/contact", function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "contact.html"));
 });
-app.get("/settings",checkAuth, function(req, res) {
+app.get("/settings", checkAuth, function(req, res) {
     res.sendFile(path.join(__dirname, "./public", "settings.html"));
 });
 app.get("/settingLogin", function(req, res) {
@@ -165,11 +149,16 @@ app.post("/settings", function(req, res) {
 app.delete('/settings', function(req, res) {
     var id = req.body.id
     var dataType = req.body.dataType
-    if (dataType == 'message') {
+    if (dataType == "traffic") {
+        Traffic.findByIdAndDelete(id, function(err) {
+            if (err) console.log(err);
+            res.send('succes');
+        });
+    } else if (dataType == 'message') {
         Message.findByIdAndDelete(id, function(err) {
             if (err) console.log(err);
             res.send('succes');
-    });
+        });
     }
 
 

@@ -101,48 +101,51 @@ barba.init({
             beforeEnter() {},
             afterEnter() {
                 hamburgerMenu('Works')
-                var workData = [{
-                        id: "1",
-                        img: "./images/website1.png",
-                        title: "Job Hunter",
-                        desc: "Job hunter is an app that helps the users to organize their job seacrh by keeping track of their job applications, It also allows them to search for job positions posted on indeed.com.",
-                        readme: 'https://github.com/abdel-lall/job-hunter/blob/master/README.md',
-                        linkWebsite: 'https://job-hunter-al.herokuapp.com/'
-                    },
-                    {
-                        id: "2",
-                        img: "./images/website2.png",
-                        title: "Trivia Game",
-                        desc: "Trivia game gives the player ten random questions, one at a time. the player has 15 sec to answer, each time he answers the game tells him if he got answer right.at the end it displays the final score",
-                        readme: 'https://github.com/abdel-lall/TriviaGame/blob/master/README.md',
-                        linkWebsite: 'https://abdel-lall.github.io/TriviaGame/'
-                    },
-                    {
-                        id: "3",
-                        img: "./images/website3.png",
-                        title: "Clicky Game",
-                        desc: "Clicky game is a memory game, it starts by showing twelve cards to the player to click on, after each click the game shuffles the cards. if the player clicks at the same card twice he loses the game.",
-                        readme: 'https://github.com/abdel-lall/Clicky-Game/blob/master/README.md',
-                        linkWebsite: 'https://abdel-lall.github.io/Clicky-Game/'
-                    },
-                    {
-                        id: "4",
-                        img: "./images/website4.jpg",
-                        title: "Google Book Search",
-                        desc: "Google Book Search an app that alows the users to search for books via the Google Books API, and gives them option to view the books on Google Books, or save the books.",
-                        readme: 'https://github.com/abdel-lall/-Google-Books-Search-app/blob/master/README.md',
-                        linkWebsite: 'https://google-books-search-app-react.herokuapp.com/'
-                    },
-                    {
-                        id: "5",
-                        img: "./images/website5.png",
-                        title: "Hangman",
-                        desc: "hangman is word guessing game.It displays 10 blured picture of known figures in the tech industry one at a time and asks the the player to guess the name of the person in the picture.",
-                        readme: 'https://github.com/abdel-lall/hangman/blob/master/README.md',
-                        linkWebsite: 'https://abdel-lall.github.io/hangman/'
-                    },
-
-                ];
+                var workData = [
+          {
+            id: "1",
+            img: "./images/website1.png",
+            title: "Chicstyler",
+            desc: "Chicstyler is a demo e-commerce website that offers a wide range of clothing products. ChicStyler is designed and built using a microservices architecture.",
+            readme: "https://github.com/abdel-lall/chicstyler#readme",
+            linkWebsite: "https://www.chicstyler.store",
+          },
+          {
+            id: "2",
+            img: "./images/website2.png",
+            title: "Job Hunter",
+            desc: "Job hunter is an app that helps the users to organize their job seacrh by keeping track of their job applications, It also allows them to search for job positions posted on indeed.com.",
+            readme: "https://github.com/abdel-lall/job-hunter#readme",
+            linkWebsite: "https://www.jobhunter.website",
+          },
+          {
+            id: "3",
+            img: "./images/website3.png",
+            title: "Trivia Game",
+            desc: "Trivia game gives the player ten random questions, one at a time. the player has 15 sec to answer, each time he answers the game tells him if he got answer right.at the end it displays the final score",
+            readme:
+              "https://github.com/abdel-lall/TriviaGame/blob/master/README.md",
+            linkWebsite: "https://abdel-lall.github.io/TriviaGame/",
+          },
+          {
+            id: "4",
+            img: "./images/website4.png",
+            title: "Clicky Game",
+            desc: "Clicky game is a memory game, it starts by showing twelve cards to the player to click on, after each click the game shuffles the cards. if the player clicks at the same card twice he loses the game.",
+            readme:
+              "https://github.com/abdel-lall/Clicky-Game/blob/master/README.md",
+            linkWebsite: "https://abdel-lall.github.io/Clicky-Game/",
+          },
+          {
+            id: "5",
+            img: "./images/website5.png",
+            title: "Hangman",
+            desc: "hangman is word guessing game.It displays 10 blured picture of known figures in the tech industry one at a time and asks the the player to guess the name of the person in the picture.",
+            readme:
+              "https://github.com/abdel-lall/hangman/blob/master/README.md",
+            linkWebsite: "https://abdel-lall.github.io/hangman/",
+          },
+        ];
 
                 $("#leftArrow").on("click", function(e) {
                     e.preventDefault()
